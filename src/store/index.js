@@ -11,7 +11,8 @@ const vuexPersist = new VuexPersist({
 const baseUrl = "http://localhost"
 const urls = {
   baseUrl,
-  login: baseUrl + '/oauth/token'
+  login: baseUrl + '/oauth/token',
+  contacts: baseUrl + '/api/contacts'
 }
 const grantType = 'password'
 const clientId = 1
@@ -40,7 +41,7 @@ const store = new Store({
     grantType: state => state.grantType,
     clientId: state => state.clientId,
     clientSecret: state => state.clientSecret,
-    user: state => state.user
+    user: state => JSON.parse(state.user)
   },
   plugins: [vuexPersist.plugin]
 })

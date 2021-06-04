@@ -1,18 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login'
+import HomeView from '../views/HomeView'
+import LoginView from '../views/LoginView'
+import ContactsView from '../views/ContactsView'
 import store from '../store'
+import { createLogger } from 'vuex'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'HomeView',
+    component: HomeView
   },
   {
     path: '/login',
-    name: 'Login',
-    component: Login
+    name: 'LoginView',
+    component: LoginView
+  },
+  {
+    path: '/contacts',
+    name: 'ContactsView',
+    component: ContactsView
   }
 ]
 
@@ -22,8 +29,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'Login' && !store.getters.isAuthenticated) {
-    next({ name: 'Login' })
+  if (to.name !== 'LoginView' && !store.getters.isAuthenticated) {
+    next({ name: 'LoginView' })
+  } else if (to.name === 'LoginView' && store.getters.isAuthenticated) {
+    next({ name: 'HomeView' })
   } else {
     next()
   }

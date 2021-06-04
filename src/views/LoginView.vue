@@ -20,16 +20,16 @@ import UserCredentialsService from '../composables/UserCredentialsService'
 import router from '../router'
 
 export default {
+    name: "LoginView",
     setup() {
         const { username, password, error, login } = LoginService()
         const loginUser = async () => {
             const response = await login()
             if (error.value) {
-                console.log("error!!!")
                 return
             }
             UserCredentialsService.setUserCredentials(response)
-            router.push({ name: "Home" })
+            router.push({ name: "HomeView<" })
         }
         return {
             username,
