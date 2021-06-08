@@ -3,6 +3,7 @@
     <FileList v-if="files" :files="files" @filedownload="fileDownload"/>
     <Paginator v-if="files" :total="total" :current_page="current_page" :last_page="last_page" 
         @movetopage="moveToPage"/>
+    <router-link :to="{name: 'HomeView'}">back</router-link>
 </template>
 
 <script>

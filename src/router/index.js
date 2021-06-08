@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView'
 import ContactsView from '../views/ContactsView'
 import ContactDetailsView from '../views/ContactDetailsView'
 import FilesView from '../views/FilesView'
+import FileErrorsView from '../views/FileErrorsView'
 import store from '../store'
 
 const routes = [
@@ -32,7 +33,13 @@ const routes = [
     path: '/files',
     name: 'FilesView',
     component: FilesView,
-  }
+  },
+  {
+    path: '/files/:id/errors',
+    name: 'FileErrorsView',
+    component: FileErrorsView,
+    props: true
+  },
 ]
 
 const router = createRouter({

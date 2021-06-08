@@ -34,16 +34,16 @@ const FileService = () => {
                 "Authorization": user.token_type + " " + user.access_token
             }
         })
-        const blob = await response.blob();
-        const newBlob = new Blob([blob]);
-        const blobUrl = window.URL.createObjectURL(newBlob);
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.setAttribute('download', file.filename);
-        document.body.appendChild(link);
-        link.click();
-        link.parentNode.removeChild(link);
-        window.URL.revokeObjectURL(blob);
+        const blob = await response.blob()
+        const newBlob = new Blob([blob])
+        const blobUrl = window.URL.createObjectURL(newBlob)
+        const link = document.createElement('a')
+        link.href = blobUrl
+        link.setAttribute('download', file.filename)
+        document.body.appendChild(link)
+        link.click()
+        link.parentNode.removeChild(link)
+        window.URL.revokeObjectURL(blob)
     }
 
     return {

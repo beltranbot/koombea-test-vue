@@ -14,7 +14,8 @@
                 <td>{{ file.filename }}</td>
                 <td>{{ file.created_at }}</td>
                 <td>
-                    <a href="#" @click.prevent="fileDownload(file)">download</a>
+                    <a href="#" @click.prevent="fileDownload(file)">download</a> |
+                    <router-link :to="{ name: 'FileErrorsView', params: { id: file.id } }">errors</router-link>
                 </td>
             </tr>
         </tbody>
@@ -28,10 +29,7 @@ export default {
     emits: ["filedownload"],
     setup(_, { emit }) {
         const fileDownload = (file) => emit("filedownload", file)
-
-        return {
-            fileDownload
-        }
+        return { fileDownload }
     }
 }
 </script>

@@ -11,7 +11,7 @@ const urls = {
   baseUrl,
   login: baseUrl + '/oauth/token',
   contacts: baseUrl + '/api/contacts',
-  files: baseUrl + '/api/files'
+  files: baseUrl + '/api/files',
 }
 const grantType = 'password'
 const clientId = 1
