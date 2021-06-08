@@ -1,4 +1,3 @@
-// import { createStore } from 'vuex'
 import { Store } from 'vuex'
 import VuexPersist from 'vuex-persist'
 
@@ -7,12 +6,12 @@ const vuexPersist = new VuexPersist({
   storage: window.localStorage
 })
 
-// const baseUrl = "http://c07c45dc4546.ngrok.io"
 const baseUrl = "http://localhost"
 const urls = {
   baseUrl,
   login: baseUrl + '/oauth/token',
-  contacts: baseUrl + '/api/contacts'
+  contacts: baseUrl + '/api/contacts',
+  files: baseUrl + '/api/files'
 }
 const grantType = 'password'
 const clientId = 1

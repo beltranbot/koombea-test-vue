@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView'
 import LoginView from '../views/LoginView'
 import ContactsView from '../views/ContactsView'
 import ContactDetailsView from '../views/ContactDetailsView'
+import FilesView from '../views/FilesView'
 import store from '../store'
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     name: 'ContactDetailsView',
     component: ContactDetailsView,
     props: true,
+  },
+  {
+    path: '/files',
+    name: 'FilesView',
+    component: FilesView,
   }
 ]
 

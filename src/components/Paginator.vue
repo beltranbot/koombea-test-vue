@@ -2,7 +2,8 @@
     <p>Total: {{ total }}</p>
     <ul>
         <li v-for="page in pages" :key="page">
-            <a href="" @click.prevent="moveToPage(page)" :class="{current_page: current_page === page}">{{page}}</a>
+            <span v-if="current_page === page" class="current_page">{{page}}</span>
+            <span v-else><a href="" @click.prevent="moveToPage(page)">{{page}}</a></span>
         </li>
     </ul>
 </template>
@@ -20,7 +21,10 @@ export default {
         }
         const moveToPage = page => emit("movetopage", page)
 
-        return { pages, moveToPage }
+        return {
+            pages,
+            moveToPage
+        }
     },
 }
 </script>
